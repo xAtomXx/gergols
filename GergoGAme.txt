@@ -1,0 +1,105 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ngfgag = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local yes = Instance.new("TextLabel")
+local GainMuscle = Instance.new("TextButton")
+local Sell = Instance.new("TextButton")
+local GainAndSell = Instance.new("TextButton")
+
+--Properties:
+
+ngfgag.Name = "ngfgag"
+ngfgag.Parent = game.CoreGui
+ngfgag.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = ngfgag
+Main.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.327340841, 0, 0.263386399, 0)
+Main.Size = UDim2.new(0, 196, 0, 259)
+Main.Active = true
+Main.Draggable = true
+
+yes.Name = "yes"
+yes.Parent = Main
+yes.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+yes.BackgroundTransparency = 1.000
+yes.Size = UDim2.new(0, 200, 0, 33)
+yes.Font = Enum.Font.SourceSans
+yes.Text = "IShowSpeed"
+yes.TextColor3 = Color3.fromRGB(85, 255, 255)
+yes.TextScaled = true
+yes.TextSize = 14.000
+yes.TextWrapped = true
+
+GainMuscle.Name = "GainMuscle"
+GainMuscle.Parent = Main
+GainMuscle.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+GainMuscle.Position = UDim2.new(0.112244904, 0, 0.185328186, 0)
+GainMuscle.Size = UDim2.new(0, 152, 0, 39)
+GainMuscle.Font = Enum.Font.SourceSans
+GainMuscle.Text = "Gain Muscle"
+GainMuscle.TextColor3 = Color3.fromRGB(85, 255, 127)
+GainMuscle.TextScaled = true
+GainMuscle.TextSize = 14.000
+GainMuscle.TextWrapped = true
+
+Sell.Name = "Sell"
+Sell.Parent = Main
+Sell.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Sell.Position = UDim2.new(0.112244904, 0, 0.362934351, 0)
+Sell.Size = UDim2.new(0, 152, 0, 39)
+Sell.Font = Enum.Font.SourceSans
+Sell.Text = "Sell"
+Sell.TextColor3 = Color3.fromRGB(85, 255, 127)
+Sell.TextScaled = true
+Sell.TextSize = 14.000
+Sell.TextWrapped = true
+
+GainAndSell.Name = "GainAndSell"
+GainAndSell.Parent = Main
+GainAndSell.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+GainAndSell.Position = UDim2.new(0.112244904, 0, 0.555984557, 0)
+GainAndSell.Size = UDim2.new(0, 152, 0, 39)
+GainAndSell.Font = Enum.Font.SourceSans
+GainAndSell.Text = "Gain and Sell"
+GainAndSell.TextColor3 = Color3.fromRGB(85, 255, 127)
+GainAndSell.TextScaled = true
+GainAndSell.TextSize = 14.000
+GainAndSell.TextWrapped = true
+
+-- Scripts:
+
+local function SLVLZLM_fake_script() -- GainMuscle.LocalScript 
+	local script = Instance.new('LocalScript', GainMuscle)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+	end)
+	
+end
+coroutine.wrap(SLVLZLM_fake_script)()
+local function HCRBYVQ_fake_script() -- Sell.LocalScript 
+	local script = Instance.new('LocalScript', Sell)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game:GetService("ReplicatedStorage").Sell:FireServer()
+	end)
+	
+end
+coroutine.wrap(HCRBYVQ_fake_script)()
+local function BCFE_fake_script() -- GainAndSell.LocalScript 
+	local script = Instance.new('LocalScript', GainAndSell)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+		game:GetService("ReplicatedStorage").Sell:FireServer()
+	end)
+	
+end
+coroutine.wrap(BCFE_fake_script)()
