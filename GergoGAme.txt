@@ -8,7 +8,10 @@ local Main = Instance.new("Frame")
 local yes = Instance.new("TextLabel")
 local GainMuscle = Instance.new("TextButton")
 local Sell = Instance.new("TextButton")
-local GainAndSell = Instance.new("TextButton")
+local GainCoinsOFF = Instance.new("TextButton")
+local GainCoins = Instance.new("TextButton")
+local GainMuscleOFF = Instance.new("TextButton")
+local SellOFF = Instance.new("TextButton")
 
 --Properties:
 
@@ -43,7 +46,7 @@ GainMuscle.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 GainMuscle.Position = UDim2.new(0.112244904, 0, 0.185328186, 0)
 GainMuscle.Size = UDim2.new(0, 152, 0, 39)
 GainMuscle.Font = Enum.Font.SourceSans
-GainMuscle.Text = "Gain Muscle"
+GainMuscle.Text = "Gain Muscle (DISABLED)"
 GainMuscle.TextColor3 = Color3.fromRGB(85, 255, 127)
 GainMuscle.TextScaled = true
 GainMuscle.TextSize = 14.000
@@ -55,51 +58,166 @@ Sell.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
 Sell.Position = UDim2.new(0.112244904, 0, 0.362934351, 0)
 Sell.Size = UDim2.new(0, 152, 0, 39)
 Sell.Font = Enum.Font.SourceSans
-Sell.Text = "Sell"
+Sell.Text = "Sell (DISABLED)"
 Sell.TextColor3 = Color3.fromRGB(85, 255, 127)
 Sell.TextScaled = true
 Sell.TextSize = 14.000
 Sell.TextWrapped = true
 
-GainAndSell.Name = "GainAndSell"
-GainAndSell.Parent = Main
-GainAndSell.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
-GainAndSell.Position = UDim2.new(0.112244904, 0, 0.555984557, 0)
-GainAndSell.Size = UDim2.new(0, 152, 0, 39)
-GainAndSell.Font = Enum.Font.SourceSans
-GainAndSell.Text = "Gain and Sell"
-GainAndSell.TextColor3 = Color3.fromRGB(85, 255, 127)
-GainAndSell.TextScaled = true
-GainAndSell.TextSize = 14.000
-GainAndSell.TextWrapped = true
+GainCoinsOFF.Name = "GainCoinsOFF"
+GainCoinsOFF.Parent = Main
+GainCoinsOFF.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+GainCoinsOFF.Position = UDim2.new(0.112244904, 0, 0.555984557, 0)
+GainCoinsOFF.Size = UDim2.new(0, 152, 0, 39)
+GainCoinsOFF.Visible = false
+GainCoinsOFF.Font = Enum.Font.SourceSans
+GainCoinsOFF.Text = "Gain Coins (ENABLED)"
+GainCoinsOFF.TextColor3 = Color3.fromRGB(85, 255, 127)
+GainCoinsOFF.TextScaled = true
+GainCoinsOFF.TextSize = 14.000
+GainCoinsOFF.TextWrapped = true
+
+GainCoins.Name = "GainCoins"
+GainCoins.Parent = Main
+GainCoins.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+GainCoins.Position = UDim2.new(0.112244904, 0, 0.555984557, 0)
+GainCoins.Size = UDim2.new(0, 152, 0, 39)
+GainCoins.Font = Enum.Font.SourceSans
+GainCoins.Text = "Gain Coins (DISABLED)"
+GainCoins.TextColor3 = Color3.fromRGB(85, 255, 127)
+GainCoins.TextScaled = true
+GainCoins.TextSize = 14.000
+GainCoins.TextWrapped = true
+
+GainMuscleOFF.Name = "GainMuscleOFF"
+GainMuscleOFF.Parent = Main
+GainMuscleOFF.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+GainMuscleOFF.Position = UDim2.new(0.112244904, 0, 0.185328186, 0)
+GainMuscleOFF.Size = UDim2.new(0, 152, 0, 39)
+GainMuscleOFF.Visible = false
+GainMuscleOFF.Font = Enum.Font.SourceSans
+GainMuscleOFF.Text = "Gain Muscle (ENABLED)"
+GainMuscleOFF.TextColor3 = Color3.fromRGB(85, 255, 127)
+GainMuscleOFF.TextScaled = true
+GainMuscleOFF.TextSize = 14.000
+GainMuscleOFF.TextWrapped = true
+
+SellOFF.Name = "SellOFF"
+SellOFF.Parent = Main
+SellOFF.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+SellOFF.Position = UDim2.new(0.112244904, 0, 0.362934351, 0)
+SellOFF.Size = UDim2.new(0, 152, 0, 39)
+SellOFF.Visible = false
+SellOFF.Font = Enum.Font.SourceSans
+SellOFF.Text = "Sell (ENABLED)"
+SellOFF.TextColor3 = Color3.fromRGB(85, 255, 127)
+SellOFF.TextScaled = true
+SellOFF.TextSize = 14.000
+SellOFF.TextWrapped = true
 
 -- Scripts:
 
-local function SLVLZLM_fake_script() -- GainMuscle.LocalScript 
+local function BDWNC_fake_script() -- GainMuscle.LocalScript 
 	local script = Instance.new('LocalScript', GainMuscle)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+		_G.LULU = true
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+		end
 	end)
-	
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.GainMuscleOFF.Visible = true
+	end)
 end
-coroutine.wrap(SLVLZLM_fake_script)()
-local function HCRBYVQ_fake_script() -- Sell.LocalScript 
+coroutine.wrap(BDWNC_fake_script)()
+local function WNRTN_fake_script() -- Sell.LocalScript 
 	local script = Instance.new('LocalScript', Sell)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("ReplicatedStorage").Sell:FireServer()
+		_G.LULU = true
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").Sell:FireServer()
+		end
 	end)
-	
-end
-coroutine.wrap(HCRBYVQ_fake_script)()
-local function BCFE_fake_script() -- GainAndSell.LocalScript 
-	local script = Instance.new('LocalScript', GainAndSell)
 
 	script.Parent.MouseButton1Click:Connect(function()
-		game:GetService("ReplicatedStorage").GetMuscle:FireServer()
-		game:GetService("ReplicatedStorage").Sell:FireServer()
+		script.Parent.Visible = false
+		script.Parent.Parent.SellOFF.Visible = true
 	end)
-	
 end
-coroutine.wrap(BCFE_fake_script)()
+coroutine.wrap(WNRTN_fake_script)()
+local function XFVLZLN_fake_script() -- GainCoinsOFF.LocalScript 
+	local script = Instance.new('LocalScript', GainCoinsOFF)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		_G.LULU = false
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+			game:GetService("ReplicatedStorage").Sell:FireServer()
+		end
+	end)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.GainCoins.Visible = true
+	end)
+end
+coroutine.wrap(XFVLZLN_fake_script)()
+local function NBRT_fake_script() -- GainCoins.LocalScript 
+	local script = Instance.new('LocalScript', GainCoins)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		_G.LULU = true
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+			game:GetService("ReplicatedStorage").Sell:FireServer()
+		end
+	end)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.GainCoinsOFF.Visible = true
+	end)
+end
+coroutine.wrap(NBRT_fake_script)()
+local function OGPMN_fake_script() -- GainMuscleOFF.LocalScript 
+	local script = Instance.new('LocalScript', GainMuscleOFF)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		_G.LULU = false
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").GetMuscle:FireServer()
+		end
+	end)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.GainMuscle.Visible = true
+	end)
+end
+coroutine.wrap(OGPMN_fake_script)()
+local function JEJW_fake_script() -- SellOFF.LocalScript 
+	local script = Instance.new('LocalScript', SellOFF)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		_G.LULU = false
+		while _G.LULU do
+			wait()
+			game:GetService("ReplicatedStorage").Sell:FireServer()
+		end
+	end)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Visible = false
+		script.Parent.Parent.Sell.Visible = true
+	end)
+end
+coroutine.wrap(JEJW_fake_script)()
